@@ -10,9 +10,9 @@ pipeline {
             bat 'mvn clean compile package'
           }
           post {
-                  always {
+                  success {
                       archiveArtifacts artifacts: '/target/*.*', fingerprint: true
-                      junit 'build/reports/**/*.xml'
+
                   }
               }
         }
