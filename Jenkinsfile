@@ -9,6 +9,12 @@ pipeline {
             echo 'Hello Sabya'
             bat 'mvn clean compile'
           }
+          post {
+                  always {
+                      archiveArtifacts artifacts: '/target/*', fingerprint: true
+                      junit 'build/reports/**/*.xml'
+                  }
+              }
         }
 
         stage('AntBuild13') {
