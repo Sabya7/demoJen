@@ -13,6 +13,7 @@ pipeline {
         stage('AntBuild13') {
           steps {
             bat 'mvn ant:ant'
+            bat 'ant compile'
           }
         }
 
