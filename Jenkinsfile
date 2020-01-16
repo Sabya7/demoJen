@@ -25,6 +25,7 @@ pipeline {
             withAnt(installation: 'Default') {
               bat 'ant compile'
             }
+
             
           }
           post {
@@ -32,6 +33,10 @@ pipeline {
                                 archiveArtifacts artifacts: '/target/*.*', fingerprint: true
           
                   }
+          }
+
+
+
           }
 
         }
