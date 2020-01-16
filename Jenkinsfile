@@ -4,7 +4,7 @@ pipeline {
     stage('Build13') {
       steps {
         echo 'Hello Sabya'
-        build 'buildingApp'
+        sh 'mvn clean compile package'
       }
     }
 
