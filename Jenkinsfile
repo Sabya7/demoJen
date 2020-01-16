@@ -23,22 +23,16 @@ pipeline {
           steps {
             bat 'mvn ant:ant'
             withAnt(installation: 'Default') {
-              bat 'ant compile'
+              bat 'ant compile jar'
             }
 
-            
           }
           post {
-                  success {
+                success {
                                 archiveArtifacts artifacts: '/target/*.*', fingerprint: true
-          
-                  }
+
+                }
           }
-
-
-
-          }
-
         }
 
       }
