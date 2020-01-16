@@ -13,17 +13,13 @@ pipeline {
         stage('AntBuild13') {
           steps {
             bat 'mvn ant:ant'
-            bat 'set PATH=%ANT_HOME%\\bin;'
+            withAnt(installation: 'Default') {
+              bat 'ant compile'
+            }
+
           }
         }
 
-      }
-    }
-
-    stage('antCompile') {
-      steps {
-        bat 'set PATH=%ANT_HOME%\\bin;'
-        bat 'ant compile'
       }
     }
 
