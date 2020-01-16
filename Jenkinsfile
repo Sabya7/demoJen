@@ -2,19 +2,27 @@ pipeline {
   agent any
   stages {
     stage('Build13') {
-
       parallel {
         stage('Build13') {
+          post {
+            always {
+              archiveArtifacts(artifacts: '/target/*.*', fingerprint: true)
+              junit 'build/reports/**/*.xml'
+            }
+
+          }
           steps {
             echo 'Hello Sabya'
-            bat 'mvn clean compile package'
+            bat 'mvn clean compile package -DskipTests'
           }
+
           post {
                   success {
                       archiveArtifacts artifacts: '/target/*.*', fingerprint: true
 
                   }
               }
+
         }
 
         stage('AntBuild13') {
@@ -26,7 +34,6 @@ pipeline {
 
           }
         }
-
 
       }
     }
