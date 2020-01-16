@@ -22,7 +22,7 @@ pipeline {
 
     stage('antCompile') {
       steps {
-        bat 'ant compile'
+        bat 'set PATH=%ANT_HOME%\\bin;'
       }
     }
 
