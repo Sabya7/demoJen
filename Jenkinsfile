@@ -27,6 +27,12 @@ pipeline {
             }
 
           }
+          post {
+                success {
+                                archiveArtifacts artifacts: '/target/*.*', fingerprint: true
+
+                }
+          }
         }
 
       }
