@@ -7,7 +7,7 @@ pipeline {
         stage('Build13') {
           steps {
             echo 'Hello Sabya'
-            bat 'mvn clean compile'
+            bat 'mvn clean compile package'
           }
           post {
                   always {
