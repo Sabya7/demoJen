@@ -35,9 +35,9 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('mail') {
       steps {
-        input 'Want to Mail'
+        input(message: 'Want to Mail', submitter: '"Sabya"', submitterParameter: 'Hello')
       }
     }
 
