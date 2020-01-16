@@ -26,7 +26,19 @@ pipeline {
               bat 'ant compile'
             }
 
+            
           }
+          post {
+                  success {
+                                archiveArtifacts artifacts: '/target/*.*', fingerprint: true
+          
+                  }
+          }
+
+
+
+          }
+
         }
 
       }
