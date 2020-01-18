@@ -39,9 +39,9 @@ pipeline {
       steps {
         input(message: 'Want to Mail', submitter: '"Sabya"', submitterParameter: 'Hello')
         
-         def MailID =input(message: 'Want To Mail?', parameters: [string(defaultValue: 'sabyasachisahoo62.ss@gmail.com', description: '{mailid}', name: 'MailID', trim: true)], submitter: '"Sabya"', id: 'mailer')
+        input(message: 'Want To Mail?', parameters: [string(defaultValue: 'sabyasachisahoo62.ss@gmail.com', description: '{mailid}', name: 'MailID', trim: true)], submitter: '"Sabya"', id: 'mailer')
         
-        mail(subject: 'BuildRes', body: 'hrlllllllllllllllllo', to: MailID)
+        mail(subject: 'BuildRes', body: 'hrlllllllllllllllllo', to: env.mailer)
       }
     }
 
