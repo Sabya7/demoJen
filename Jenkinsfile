@@ -15,6 +15,9 @@ pipeline {
                       archiveArtifacts artifacts: '/target/*.*', fingerprint: true
 
                   }
+                  always {
+                              junit '/target/**/*.xml'
+                          }
               }
 
         }
