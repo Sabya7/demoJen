@@ -39,6 +39,12 @@ pipeline {
       steps {
         input(message: 'Want to Mail', submitter: '"Sabya"', submitterParameter: 'Hello')
         input(message: 'Want To Mail?', parameters: [string(defaultValue: 'sabyasachisahoo62.ss@gmail.com', description: '{mailid}', name: 'MailID', trim: true)], submitter: '"Sabya"', id: 'mailer')
+        
+        script {
+                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
+                            parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+        }
+                echo "${env.RELEASE_SCOPE}"
         bat 'set'
         mail(subject: 'BuildRes', body: 'hrlllllllllllllllllo', to: "${MailID}")
       }
