@@ -7,7 +7,7 @@ pipeline {
 
           steps {
             echo 'Hello Sabya'
-            bat 'mvn clean compile package -DskipTests'
+            bat 'mvn clean compile package'
           }
 
           post {
