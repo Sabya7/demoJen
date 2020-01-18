@@ -40,7 +40,7 @@ pipeline {
         input(message: 'Want to Mail', submitter: '"Sabya"', submitterParameter: 'Hello')
         input(message: 'Want To Mail?', parameters: [string(defaultValue: 'sabyasachisahoo62.ss@gmail.com', description: '{mailid}', name: 'MailID', trim: true)], submitter: '"Sabya"', id: 'mail')
         mail(subject: 'BuildRes', body: 'hrlllllllllllllllllo', to: mail[MailID])
-        echo '${MailID}'
+        echo '${mail[MailID]}'
       }
     }
 
