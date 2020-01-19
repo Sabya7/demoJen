@@ -63,6 +63,7 @@ pipeline {
 
     stage('quality_gate') {
       steps {
+        sleep(time:60,unit:"SECONDS")
         waitForQualityGate()
       }
     }
