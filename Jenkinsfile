@@ -52,9 +52,18 @@ pipeline {
       }
     }
 
-    stage('StaticCodeAnalysis') {
+    stage('sonar_scan') {
       steps {
-        waitForQualityGate(credentialsId: 'ef9567909c2a7f1f84eaab89102eb370355cde63')
+        withSonarQubeEnv('sonar_scanner') {
+          bat 'mvn sonar:sonar'
+        }
+
+      }
+    }
+
+    stage('quality_gate') {
+      steps {
+        waitForQualityGate()
       }
     }
 
